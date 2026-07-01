@@ -1,0 +1,48 @@
+name: Tensor Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tensor-gate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run tests
+        run: python -m unittest
+
+      - name: Run Null Auditor
+        run: python agents/null_auditor.py --pr "${{ github.event.pull_request.number }}"
+
+      - name: Run Existential Destroyer
+        run: python agents/existential_destroyer.py --pr "${{ github.event.pull_request.number }}"
+
+      - name: Run Fudo Compiler
+        run: python agents/fudo_compiler.py --pr "${{ github.event.pull_request.number }}"
+
+      - name: Run Abyss Shadow
+        run: python agents/abyss_shadow.py --pr "${{ github.event.pull_request.number }}"
+
+      - name: Run Transparent Deconstructor
+        run: python agents/transparent_deconstructor.py --pr "${{ github.event.pull_request.number }}"
+
+      - name: Tensorize and enforce
+        run: python kernel/tensor_gate.py --enforce
+
+      - name: Upload tensor reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctr-tensor-reports
+          path: .ctr/

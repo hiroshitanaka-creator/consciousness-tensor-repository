@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TensorReport",
+  "type": "object",
+  "required": [
+    "merge_allowed",
+    "required_transformations",
+    "axis_scores",
+    "contradictions_preserved",
+    "reports"
+  ],
+  "properties": {
+    "merge_allowed": { "type": "boolean" },
+    "required_transformations": { "type": "object" },
+    "axis_scores": { "type": "object" },
+    "contradictions_preserved": { "type": "array", "items": { "type": "string" } },
+    "reports": { "type": "object" }
+  },
+  "additionalProperties": false
+}

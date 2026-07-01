@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DecisionRite",
+  "type": "object",
+  "required": [
+    "chosen",
+    "destroyed",
+    "rejected_alternatives",
+    "postponement_reason",
+    "cost_bearer",
+    "failure_test",
+    "irreversible_after_merge"
+  ],
+  "properties": {
+    "chosen": { "type": "string", "minLength": 1 },
+    "destroyed": { "type": "string", "minLength": 1 },
+    "rejected_alternatives": { "type": "array", "minItems": 2, "items": { "type": "string" } },
+    "postponement_reason": { "type": "string", "minLength": 1 },
+    "cost_bearer": { "type": "string", "minLength": 1 },
+    "failure_test": { "type": "string", "minLength": 1 },
+    "irreversible_after_merge": { "type": "string", "minLength": 1 }
+  },
+  "additionalProperties": false
+}

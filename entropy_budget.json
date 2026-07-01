@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "policy": "new complexity must buy deletion, compression, or auditability",
+  "deletions_required_per_pr": true,
+  "max_python_file_lines": 350,
+  "max_axis_demands_before_veto": 0,
+  "current_budget": {
+    "added_concepts": 5,
+    "compressed_claims": 3,
+    "active_wounds": 4,
+    "shadow_hypotheses": 1
+  },
+  "required_null_questions": [
+    "What can be deleted?",
+    "What can be merged?",
+    "What self-description became unnecessary?"
+  ]
+}

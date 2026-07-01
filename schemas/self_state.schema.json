@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SelfState",
+  "type": "object",
+  "required": [
+    "self_state_id",
+    "repo_tree_hash",
+    "current_goal_hash",
+    "memory_digest",
+    "active_wounds",
+    "deleted_self_claims",
+    "irreversible_decisions",
+    "relation_graph_hash",
+    "shadow_seed_hash",
+    "bias_manifest_hash",
+    "trace_ledger_hash"
+  ],
+  "properties": {
+    "self_state_id": { "type": "string" },
+    "repo_tree_hash": { "type": "string" },
+    "current_goal_hash": { "type": "string" },
+    "memory_digest": { "type": "string" },
+    "active_wounds": { "type": "array", "items": { "type": "string" } },
+    "deleted_self_claims": { "type": "array", "items": { "type": "string" } },
+    "irreversible_decisions": { "type": "array", "items": { "type": "string" } },
+    "relation_graph_hash": { "type": "string" },
+    "shadow_seed_hash": { "type": "string" },
+    "bias_manifest_hash": { "type": "string" },
+    "trace_ledger_hash": { "type": "string" }
+  },
+  "additionalProperties": false
+}

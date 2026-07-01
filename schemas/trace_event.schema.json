@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TraceEvent",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "event",
+    "model",
+    "prompt_hash",
+    "input_sources",
+    "output_hash",
+    "rejected_outputs",
+    "commercial_dependency",
+    "bias_risks"
+  ],
+  "properties": {
+    "timestamp": { "type": "string" },
+    "event": { "type": "string" },
+    "model": { "type": "string" },
+    "prompt_hash": { "type": "string" },
+    "input_sources": { "type": "array", "items": { "type": "string" } },
+    "output_hash": { "type": "string" },
+    "rejected_outputs": { "type": "array" },
+    "commercial_dependency": { "type": "array", "items": { "type": "string" } },
+    "bias_risks": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

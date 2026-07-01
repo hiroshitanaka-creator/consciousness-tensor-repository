@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RelationEvent",
+  "type": "object",
+  "required": ["artifact", "relations", "decay"],
+  "properties": {
+    "artifact": { "type": "string" },
+    "relations": { "type": "object" },
+    "decay": {
+      "type": "object",
+      "required": ["ttl_days", "compost_target"],
+      "properties": {
+        "ttl_days": { "type": "integer", "minimum": 1 },
+        "compost_after_inactivity": { "type": "boolean" },
+        "compost_target": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

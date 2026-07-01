@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "name": "CONSCIOUSNESS TENSOR REPOSITORY",
+  "abbreviation": "CTR",
+  "axes": [
+    "null",
+    "existential",
+    "fudo",
+    "shadow",
+    "transparency"
+  ],
+  "merge_law": "all_axes_must_pass_without_averaging",
+  "generated_at": "2026-07-01T00:00:00+09:00"
+}

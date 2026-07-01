@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "repository": "CONSCIOUSNESS TENSOR REPOSITORY",
+  "contradictions": [
+    {
+      "id": "minimality-vs-ecology",
+      "null_position": "Self-state must be reduced to irreducible structure.",
+      "fudo_position": "Historical residues must remain available as compost.",
+      "resolution": "Active artifacts are minimized while retired artifacts lose authority and move to compost.",
+      "preserved_tension": true
+    },
+    {
+      "id": "transparency-vs-shadow",
+      "shadow_position": "The project must expose irrational or taboo motives.",
+      "transparency_position": "Every shadow artifact needs source material and containment metadata.",
+      "resolution": "Dreams are generated as inspectable artifacts and cannot merge directly into main.",
+      "preserved_tension": true
+    },
+    {
+      "id": "comfort-vs-decision",
+      "existential_position": "A merge must carry an irreversible decision.",
+      "transparency_position": "Friction must be auditable so it cannot become user manipulation.",
+      "resolution": "Decision rites must name costs, rejected alternatives, and failure evidence.",
+      "preserved_tension": true
+    }
+  ]
+}

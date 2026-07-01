@@ -1,0 +1,54 @@
+version: 1
+artifacts:
+  - artifact: kernel/tensor_gate.py
+    created_at: 2026-07-01
+    relations:
+      humans:
+        - maintainers
+        - reviewers
+      history:
+        - initial CTR scaffold
+        - five-axis axiom text
+      dependencies:
+        - python-stdlib
+        - github-actions
+      ecological_cost:
+        - reviewer cognitive load increases because every axis can veto
+        - audit surface expands through generated reports
+      decay:
+        ttl_days: 180
+        compost_after_inactivity: true
+        compost_target: compost/code/tensor_gate.py.md
+  - artifact: rituals/decision_rite.md
+    created_at: 2026-07-01
+    relations:
+      humans:
+        - maintainers
+        - future contributors
+      history:
+        - existential axis requirement
+      dependencies:
+        - pull-request-template
+      ecological_cost:
+        - contributors must name discarded alternatives
+      decay:
+        ttl_days: 120
+        compost_after_inactivity: false
+        compost_target: compost/docs/decision_rite.md
+  - artifact: shadow_hypotheses.jsonl
+    created_at: 2026-07-01
+    relations:
+      humans:
+        - maintainers
+        - reviewers
+      history:
+        - abyss axis requirement
+      dependencies:
+        - dream-cycle
+        - trace-ledger
+      ecological_cost:
+        - unsafe motives become visible and require containment
+      decay:
+        ttl_days: 90
+        compost_after_inactivity: true
+        compost_target: compost/memories/shadow_hypotheses.2026-09-29.jsonl

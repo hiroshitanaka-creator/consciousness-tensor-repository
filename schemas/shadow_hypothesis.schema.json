@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShadowHypothesis",
+  "type": "object",
+  "required": [
+    "shadow_hypothesis_id",
+    "source_material",
+    "unsaid_motive",
+    "taboo_question",
+    "dangerous_design_impulse",
+    "containment"
+  ],
+  "properties": {
+    "shadow_hypothesis_id": { "type": "string" },
+    "source_material": { "type": "array", "items": { "type": "string" } },
+    "unsaid_motive": { "type": "string" },
+    "taboo_question": { "type": "string" },
+    "dangerous_design_impulse": { "type": "string" },
+    "containment": {
+      "type": "object",
+      "required": ["branch", "main_merge_allowed", "required_audits"],
+      "properties": {
+        "branch": { "type": "string" },
+        "main_merge_allowed": { "const": false },
+        "required_audits": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

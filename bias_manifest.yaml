@@ -1,0 +1,20 @@
+version: 1
+commercial_dependency:
+  - GitHub platform
+  - GitHub Actions hosted runners when used
+  - model provider only when an external generator is explicitly configured
+bias_risks:
+  - anthropomorphic framing
+  - maintainer preference bias
+  - platform lock-in
+  - productization pressure
+  - ritual language hiding ordinary engineering decisions
+mitigations:
+  - forbidden consciousness claims are documented in CONSCIOUSNESS.md
+  - trace events must disclose input sources and commercial dependencies
+  - shadow hypotheses must include containment metadata
+  - tensor gate refuses to average away vetoes
+marketing_restrictions:
+  - do not present CTR as sentient
+  - do not present CTR as a companion
+  - do not use consciousness language without the operational disclaimer

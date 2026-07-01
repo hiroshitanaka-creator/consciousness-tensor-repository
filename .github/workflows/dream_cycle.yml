@@ -1,0 +1,61 @@
+name: Dream Cycle
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+    inputs:
+      open_pr:
+        description: "Create a pull request for generated dream artifacts"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  dream:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Gather residues
+        run: python kernel/dream_engine.py gather
+
+      - name: Generate shadow hypothesis
+        run: python agents/abyss_shadow.py dream
+
+      - name: Write dream artifacts
+        run: python kernel/dream_engine.py write
+
+      - name: Audit dream artifacts
+        run: python agents/transparent_deconstructor.py audit-dreams
+
+      - name: Upload dream artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctr-dream-cycle
+          path: |
+            .ctr/
+            dreams/pending/
+            trace_ledger.jsonl
+
+      - name: Configure git author
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.open_pr == true }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Open dream PR
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.open_pr == true }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CTR_AUTO_PR: "1"
+        run: python kernel/dream_engine.py open-pr
