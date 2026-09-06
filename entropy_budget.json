@@ -4,6 +4,12 @@
   "deletions_required_per_pr": true,
   "max_python_file_lines": 350,
   "max_axis_demands_before_veto": 0,
+  "ingestion_budget": {
+    "new_concepts": ["ExperienceEvent"],
+    "compression": "Reuse the existing ledger and contradiction catalog; collapse identical Issue deliveries into one revision.",
+    "runtime_dependencies_added": 0,
+    "recording_policy": "One source snapshot and one trace per revision; no copied user profile or comments."
+  },
   "current_budget": {
     "added_concepts": 5,
     "compressed_claims": 3,

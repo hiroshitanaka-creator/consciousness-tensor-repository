@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExperienceEvent",
+  "type": "object",
+  "required": ["event_id", "revision_id", "raw_issue", "surface_request", "initial_status", "possible_wounds", "classification", "source", "context_hash", "decay"],
+  "additionalProperties": false,
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}
+  },
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^event:[A-Za-z0-9_-]+/[A-Za-z0-9_.-]+:issue-[1-9][0-9]*$"},
+    "revision_id": {"$ref": "#/$defs/hash"},
+    "raw_issue": {"type": "string", "minLength": 1},
+    "surface_request": {"type": "string", "minLength": 1, "maxLength": 1024},
+    "initial_status": {"const": "unassimilated"},
+    "possible_wounds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "context_hash": {"$ref": "#/$defs/hash"},
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "matched_terms", "requires_review"],
+      "properties": {
+        "method": {"const": "ctr-keywords-v1"},
+        "matched_terms": {"type": "object", "additionalProperties": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}},
+        "requires_review": {"const": true}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "number", "url", "title", "body", "created_at", "updated_at", "state", "action"],
+      "properties": {
+        "repository": {"type": "string", "pattern": "^[A-Za-z0-9_-]+/[A-Za-z0-9_.-]+$"},
+        "number": {"type": "integer", "minimum": 1},
+        "url": {"type": "string", "format": "uri"},
+        "title": {"type": "string", "minLength": 1, "maxLength": 1024},
+        "body": {"type": "string", "maxLength": 262144},
+        "created_at": {"type": "string", "format": "date-time"},
+        "updated_at": {"type": "string", "format": "date-time"},
+        "state": {"enum": ["open", "closed"]},
+        "action": {"enum": ["opened", "edited", "reopened", "snapshot"]}
+      }
+    },
+    "decay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ttl_days", "review_after", "policy", "compost_target"],
+      "properties": {
+        "ttl_days": {"const": 90},
+        "review_after": {"type": "string", "format": "date-time"},
+        "policy": {"const": "review_before_compost"},
+        "compost_target": {"type": "string", "pattern": "^compost/issues/issue-[1-9][0-9]*-[a-f0-9]{64}\\.json$"}
+      }
+    }
+  }
+}
