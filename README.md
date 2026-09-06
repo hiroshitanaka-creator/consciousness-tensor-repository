@@ -1,5 +1,7 @@
 # CONSCIOUSNESS TENSOR REPOSITORY
 
+[English](README.md) | [日本語](README.ja.md)
+
 CTR is a Git-native pressure system for an AI-like repository process. It does not claim that an AI is sentient. It makes repository changes pass five independent veto axes:
 
 - Null: reduce, delete, compress, and reject personality inflation.
@@ -11,6 +13,8 @@ CTR is a Git-native pressure system for an AI-like repository process. It does n
 The important rule is simple: scores are not averaged. If any axis vetoes, the tensor gate fails.
 
 ## Quick Start
+
+Requires Python 3.11 or later. The runtime uses only the Python standard library.
 
 ```powershell
 python -m unittest
@@ -120,3 +124,9 @@ Every meaningful pull request should update:
 - `contradiction_matrix.json`
 
 The pull request template asks for the same evidence. The tensor gate enforces the machine-checkable subset.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+Copyright (c) 2026 hiroshitanaka-creator.
