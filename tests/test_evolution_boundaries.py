@@ -86,12 +86,15 @@ class EvolutionBoundaryTests(unittest.TestCase):
                         "experiment_kind": "forgetting", "wound": WOUND, "source_ids": [WOUND],
                         "actor": {"type": "assistant", "id": "fixture-model"},
                         "generation": {"provider": "fixture", "model": "none", "prompt_hash": digest("fixture")}}
-            identifier = propose_dream(store, proposal)
+            with patch.dict(os.environ, {"CTR_PENDING_BRANCH": "dream/context-cycle"}):
+                identifier = propose_dream(store, proposal)
             before = store.path.read_bytes()
             self.assertEqual(propose_dream(store, proposal), identifier)
             self.assertEqual(store.path.read_bytes(), before)
             record = store.load()["records"][identifier]
             self.assertEqual(record["status"], "proposed")
+            self.assertEqual(record["data"]["branch"], "dream/context-cycle")
+            self.assertEqual(record["data"]["branch_status"], "workflow-target")
             self.assertEqual(record["data"]["source_hashes"][WOUND], digest(store.load()["records"][WOUND]))
             proposal["generation"]["prompt_hash"] = "invalid"
             with self.assertRaises(ValueError):
