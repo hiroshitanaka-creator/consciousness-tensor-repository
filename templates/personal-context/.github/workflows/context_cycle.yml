@@ -1,0 +1,86 @@
+name: Private Context Cycle
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+  push:
+    branches: [main]
+    paths: ["inbox/**"]
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+    inputs:
+      operation:
+        type: choice
+        options: [refresh, dream, experiment, assess]
+        default: refresh
+      wound:
+        type: string
+        default: ""
+      plan:
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+  issues: read
+  pull-requests: write
+
+concurrency:
+  group: private-context-writer
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  context:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CTR_PENDING_BRANCH: ${{ (github.event_name == 'schedule' || inputs.operation == 'dream') && 'dream/context-cycle' || 'codex/context-cycle' }}
+      GITHUB_REPOSITORY_VISIBILITY: ${{ github.event.repository.private && 'private' || 'public' }}
+      CTR_DATA_DIR: ${{ github.workspace }}/context
+      PYTHONPATH: ${{ github.workspace }}/.ctr-engine
+    steps:
+      - name: Require a private data repository
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$(gh api "repos/$GITHUB_REPOSITORY" --jq .private)" = true
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/checkout@v4
+        with:
+          repository: hiroshitanaka-creator/consciousness-tensor-repository
+          ref: CTR_ENGINE_REVISION
+          path: .ctr-engine
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Process private context
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CTR_OPERATION: ${{ github.event_name == 'schedule' && 'dream' || inputs.operation || 'refresh' }}
+          CTR_WOUND: ${{ inputs.wound }}
+          CTR_PLAN: ${{ inputs.plan }}
+        run: python -m kernel.private_cycle
+      - name: Upload private context snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-context-${{ github.run_id }}
+          retention-days: 14
+          path: context/
+      - name: Propose context update
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: ${{ env.CTR_PENDING_BRANCH }}
+          add-paths: context/
+          title: "Update private CTR context"
+          commit-message: "Update private CTR context"
+          body: |
+            Records source-backed experiences, context indexes, or quarantined hypotheses.
+            The canonical state and audit chain were validated before publication.
+            Proposed hypotheses remain unaccepted; record attribution is not human approval.
+            Review the stored sources and evidence before merging.

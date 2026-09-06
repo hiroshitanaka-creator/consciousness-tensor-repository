@@ -3,6 +3,27 @@
   "repository": "CONSCIOUSNESS TENSOR REPOSITORY",
   "contradictions": [
     {
+      "id": "continuity-vs-forgetting",
+      "null_position": "Remove context that cannot justify its continued use.",
+      "fudo_position": "Preserve the conditions and failures that future choices depend on.",
+      "resolution": "Omit memories only in measured trial snapshots; preserve the evidence and require a decision before retiring active records.",
+      "preserved_tension": true
+    },
+    {
+      "id": "private-history-vs-public-tooling",
+      "fudo_position": "Personal experience gains value through continued use.",
+      "transparency_position": "Reusable tooling must remain inspectable without exposing personal histories.",
+      "resolution": "Publish the engine and synthetic fixtures; keep individual contexts, workflows, PRs, and artifacts in a verified private repository.",
+      "preserved_tension": true
+    },
+    {
+      "id": "adaptive-judgment-vs-gate-stability",
+      "shadow_position": "The judges may reward evidence that resembles their own preferences.",
+      "existential_position": "Changing a refusal criterion must remain an attributable choice.",
+      "resolution": "Measure each axis on labeled cases and preserve misses; never let assessment results rewrite thresholds or average away a veto.",
+      "preserved_tension": true
+    },
+    {
       "id": "minimality-vs-ecology",
       "null_position": "Self-state must be reduced to irreducible structure.",
       "fudo_position": "Historical residues must remain available as compost.",

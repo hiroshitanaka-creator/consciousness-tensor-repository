@@ -2,6 +2,8 @@
 
 ## What is being chosen?
 
+Implement all five evolution proposals and the context graph over one explicit private data store. Use deterministic source-based templates by default, accept externally attributed model proposals, and test reviewed Git revisions in bounded worktrees.
+
 CTR is implemented as a Python standard-library repository with GitHub Actions as the first execution surface.
 
 Issue ingestion records immutable source revisions as unassimilated ExperienceEvents. A standing ingestion policy permits a bot to propose those records in a PR after five-axis validation. Implementing a request remains a separate decision.
@@ -10,6 +12,8 @@ At the repository owner's request, distribute CTR under the MIT License and main
 
 ## What is being destroyed by this choice?
 
+This gives up implicit shared conversation memory, unbounded background experimentation, and treating generated hypotheses as accepted knowledge. Personal data will not be placed in the public engine.
+
 This rejects a chatbot-first design, a hosted web service, and any claim that the project proves subjective consciousness.
 
 We give up a single mutable Issue record and automatic task execution. Edited Issue text may remain in Git history after a recorded revision is merged.
@@ -17,6 +21,10 @@ We give up a single mutable Issue record and automatic task execution. Edited Is
 MIT distribution gives up exclusive control over downstream copying and modification. Two guides replace the convenience of maintaining only one language.
 
 ## Which alternatives are rejected?
+
+- A separate database and memory implementation for each evolution feature.
+- Unrestricted model-generated shell commands and automatic reviewer-threshold changes.
+- Publishing personal contexts alongside the reusable MIT engine.
 
 1. A conversational assistant with persistent persona memory.
 2. A pure philosophy document with no executable enforcement.
@@ -28,6 +36,8 @@ MIT distribution gives up exclusive control over downstream copying and modifica
 
 ## Why is postponement dishonest?
 
+The six proposals are now implemented together so that experiences, decisions, experiments, and retrievals can be checked as one complete loop rather than described as disconnected future features.
+
 Without executable checks, the five axes remain language that cannot veto a pull request. The system must become runnable before its claims can be audited.
 
 Without an Issue intake, external requests cannot enter the contradiction state. The boundary must be tested before downstream agents treat Issue content as evidence.
@@ -35,6 +45,8 @@ Without an Issue intake, external requests cannot enter the contradiction state.
 The declared license and package metadata must agree before further distribution. Japanese readers need the same operational constraints as English readers now.
 
 ## Who or what bears the cost?
+
+The context owner controls sources and connected-client permissions. Code reviewers decide whether trial refs are trusted; assistant attribution stays distinct from human approval. Synthetic labels are authored by the assistant and do not claim independent human validation.
 
 Contributors bear additional review work. Maintainers bear responsibility for deciding whether ritual evidence is real evidence or only decorated compliance.
 
@@ -44,6 +56,8 @@ The owner authorizes MIT distribution. Maintainers bear the cost of keeping both
 
 ## What failure would prove this decision wrong?
 
+A recurrence without a new observation, accepting a Dream using unrelated evidence, silently changing context during a trial, losing a veto in an average, or exposing private data through a public workflow would invalidate this design.
+
 If pull requests routinely satisfy the files while avoiding real deletion, decision, relation, shadow, or transparency work, this implementation has become empty ceremony.
 
 Duplicate traces on replay, overwritten revisions, executable Issue text, lost source attribution, or presenting a keyword match as an author's intention would disprove the ingestion design.
@@ -51,6 +65,8 @@ Duplicate traces on replay, overwritten revisions, executable Issue text, lost s
 Nonstandard license wording, conflicting package metadata, broken language links, or translated commands with different behavior would invalidate this documentation change.
 
 ## What cannot be undone after merge?
+
+Stored decisions and distributed engine commits become part of their repository histories. Tests execute reviewed repository code; a worktree does not undo external side effects, so the runtime explicitly limits its isolation claim to file changes.
 
 The repository will treat five-axis veto enforcement as its merge law. Later designs must explicitly argue against that law instead of silently bypassing it.
 

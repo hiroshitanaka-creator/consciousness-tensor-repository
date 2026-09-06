@@ -4,12 +4,18 @@ commercial_dependency:
   - GitHub Actions hosted runners when used
   - model provider only when an external generator is explicitly configured
 bias_risks:
+  - lexical retrieval can miss relevant context
+  - synthetic fixture labels may reward the assistant's own assumptions
+  - declared actor and model metadata are not authenticated identity
   - anthropomorphic framing
   - maintainer preference bias
   - platform lock-in
   - productization pressure
   - ritual language hiding ordinary engineering decisions
 mitigations:
+  - record source hashes and expose excluded retrieval candidates
+  - keep per-axis confusion counts and do not auto-adjust gate thresholds
+  - preserve assistant attribution and separate proposed from accepted records
   - forbidden consciousness claims are documented in CONSCIOUSNESS.md
   - trace events must disclose input sources and commercial dependencies
   - shadow hypotheses must include containment metadata

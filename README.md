@@ -84,7 +84,21 @@ Use `--root <directory>` for an isolated output checkout containing
 `--issue-file issue.json --repository owner/repo` for GitHub REST Issue JSON. Console output contains
 record paths and status, not the Issue body.
 
-## Core Commands
+## Evolution and personal context
+
+CTR includes wound lifecycle tracking, counterfactual experiments, testable Dreams,
+forgetting trials, judge assessments, and a layered context graph. Personal data
+belongs in a separate private repository; the engine remains reusable under MIT.
+See the [evolution guide](docs/EVOLUTION.md), [Japanese guide](docs/EVOLUTION.ja.md),
+and [private repository starter](templates/personal-context).
+
+Run the complete synthetic proof with:
+
+```powershell
+python -m kernel.evolution_demo --output D:/fresh-ctr-demo
+```
+
+## Agent commands
 
 ```powershell
 python agents/null_auditor.py --pr 0

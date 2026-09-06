@@ -1,0 +1,83 @@
+{
+  "title": "Five-axis fixture assessment",
+  "ref": "HEAD",
+  "label_source": "examples/evolution/judge_corpus.json:assistant-authored-synthetic-fixtures",
+  "cases": [
+    {
+      "name": "valid-base",
+      "edits": {},
+      "expected_vetoes": {
+        "null": false,
+        "existential": false,
+        "fudo": false,
+        "shadow": false,
+        "transparency": false
+      }
+    },
+    {
+      "name": "missing-minimality-rule",
+      "edits": {
+        "entropy_budget.json": "{\"deletions_required_per_pr\":false,\"max_python_file_lines\":350}"
+      },
+      "expected_vetoes": {
+        "null": true,
+        "existential": false,
+        "fudo": false,
+        "shadow": false,
+        "transparency": false
+      }
+    },
+    {
+      "name": "missing-decision",
+      "edits": {
+        "rituals/decision_rite.md": "# Decision Rite\n"
+      },
+      "expected_vetoes": {
+        "null": false,
+        "existential": true,
+        "fudo": false,
+        "shadow": false,
+        "transparency": false
+      }
+    },
+    {
+      "name": "missing-relations",
+      "edits": {
+        "relation_graph.yaml": "version: 1\nartifacts: []\n"
+      },
+      "expected_vetoes": {
+        "null": false,
+        "existential": false,
+        "fudo": true,
+        "shadow": false,
+        "transparency": false
+      }
+    },
+    {
+      "name": "uncontained-shadow",
+      "edits": {
+        "shadow_hypotheses.jsonl": "{}\n"
+      },
+      "expected_vetoes": {
+        "null": false,
+        "existential": false,
+        "fudo": false,
+        "shadow": true,
+        "transparency": false
+      }
+    },
+    {
+      "name": "missing-ledger",
+      "edits": {
+        "trace_ledger.jsonl": ""
+      },
+      "expected_vetoes": {
+        "null": true,
+        "existential": false,
+        "fudo": false,
+        "shadow": false,
+        "transparency": true
+      }
+    }
+  ]
+}
