@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Git-native five-axis tensor gate for consciousness-pressure repository experiments."
 requires-python = ">=3.11"
 readme = "README.md"
-license = { text = "UNLICENSED" }
+license = { file = "LICENSE" }
 
 [tool.ctr]
 report_dir = ".ctr/reports"
