@@ -22,6 +22,16 @@
       "transparency_position": "Friction must be auditable so it cannot become user manipulation.",
       "resolution": "Decision rites must name costs, rejected alternatives, and failure evidence.",
       "preserved_tension": true
+    },
+    {
+      "id": "observation-vs-task",
+      "null_position": "Issue ingestion must not create persona memory or duplicate deliveries.",
+      "existential_position": "Recording a request must not silently choose its implementation.",
+      "fudo_position": "Each observation needs an Issue source, revision, and decay review date.",
+      "shadow_position": "A classifier may hide maintainer preferences behind apparent objectivity.",
+      "transparency_position": "Preserve source text and label keyword matches as provisional hypotheses.",
+      "resolution": "Record unassimilated Issue revisions with deterministic hashes and trace events; review the proposed record before merge and require a separate decision for implementation.",
+      "preserved_tension": true
     }
   ]
 }

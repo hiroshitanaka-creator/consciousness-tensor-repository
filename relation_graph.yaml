@@ -1,5 +1,55 @@
 version: 1
 artifacts:
+  - artifact: kernel/experience_event.py
+    created_at: 2026-09-06
+    relations:
+      humans:
+        - Issue authors
+        - maintainers reviewing wound candidates
+      history:
+        - ExperienceEvent ingestion implementation request
+        - initial CTR scaffold had no Issue intake
+      dependencies:
+        - python-stdlib
+        - contradiction_matrix.json
+        - trace-ledger
+      ecological_cost:
+        - retained Issue text and provisional classification need review
+      decay:
+        ttl_days: 180
+        compost_after_inactivity: false
+        compost_target: compost/code/experience_event.py.md
+  - artifact: schemas/experience_event.schema.json
+    created_at: 2026-09-06
+    relations:
+      humans:
+        - downstream event consumers
+      history:
+        - observation-vs-task contradiction
+      dependencies:
+        - json-schema-2020-12
+      ecological_cost:
+        - event contract must track producer changes
+      decay:
+        ttl_days: 180
+        compost_after_inactivity: false
+        compost_target: compost/docs/experience_event.schema.json.md
+  - artifact: .github/workflows/issue_ingest.yml
+    created_at: 2026-09-06
+    relations:
+      humans:
+        - repository maintainers
+      history:
+        - artifact-only cycles in initial scaffold
+      dependencies:
+        - github-actions
+        - peter-evans/create-pull-request-v8
+      ecological_cost:
+        - Actions usage and review effort for per-revision PRs
+      decay:
+        ttl_days: 90
+        compost_after_inactivity: false
+        compost_target: compost/docs/issue_ingest.yml.md
   - artifact: kernel/tensor_gate.py
     created_at: 2026-07-01
     relations:
