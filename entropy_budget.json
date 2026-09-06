@@ -4,6 +4,16 @@
   "deletions_required_per_pr": true,
   "max_python_file_lines": 350,
   "max_axis_demands_before_veto": 0,
+  "evolution_budget": {
+    "shared_store": "One canonical state and one derived graph serve all six capabilities.",
+    "runtime_dependencies_added": 0,
+    "max_variants": 4,
+    "max_trial_seconds_per_plan": 300,
+    "max_assessment_cases": 8,
+    "max_retrieval_characters": 32000,
+    "nightly_wounds_considered": 3,
+    "compression": "Reuse the Issue parser and five agents; derived indexes replace duplicate manually maintained context summaries."
+  },
   "ingestion_budget": {
     "new_concepts": ["ExperienceEvent"],
     "compression": "Reuse the existing ledger and contradiction catalog; collapse identical Issue deliveries into one revision.",

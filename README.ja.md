@@ -60,7 +60,20 @@ python kernel/experience_event.py --event-file issue-event.json
 
 出力先を別の作業コピーにする場合は `--root <directory>` を指定します。そのディレクトリには `contradiction_matrix.json` が必要です。GitHub REST APIのIssue JSONを使う場合は、`--issue-file issue.json --repository owner/repo` も指定できます。コンソールには記録のパスと処理状態を表示し、Issue本文は表示しません。
 
-## 主なコマンド
+## 進化機能と個人コンテキスト
+
+傷の成長・再発、設計案の比較、実験できるDream、忘却実験、5軸の審査能力評価、
+コンテキストグラフを実装しています。個人の記録は別の非公開リポジトリに保存します。
+[日本語ガイド](docs/EVOLUTION.ja.md)、[英語ガイド](docs/EVOLUTION.md)、
+[個人用テンプレート](templates/personal-context)を参照してください。
+
+架空のデータで6機能を一周させる実証は、次のコマンドで実行できます。
+
+```powershell
+python -m kernel.evolution_demo --output D:/fresh-ctr-demo
+```
+
+## エージェントのコマンド
 
 ```powershell
 python agents/null_auditor.py --pr 0

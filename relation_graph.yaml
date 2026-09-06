@@ -1,5 +1,138 @@
 version: 1
 artifacts:
+  - artifact: kernel/context_store.py
+    created_at: 2026-09-06
+    relations:
+      humans:
+        - context owner
+        - code and evidence reviewers
+      history:
+        - five evolution proposals and context graph design
+        - canonical private records and atomic audit state
+      dependencies:
+        - python-stdlib
+        - git
+        - shared-context-store
+      ecological_cost:
+        - retained evidence and reviewer attention
+      decay:
+        ttl_days: 180
+        compost_after_inactivity: false
+        compost_target: compost/code/context_store.py.md
+  - artifact: kernel/context_graph.py
+    created_at: 2026-09-06
+    relations:
+      humans:
+        - context owner
+        - code and evidence reviewers
+      history:
+        - five evolution proposals and context graph design
+        - layered retrieval and typed evidence relationships
+      dependencies:
+        - python-stdlib
+        - git
+        - shared-context-store
+      ecological_cost:
+        - retained evidence and reviewer attention
+      decay:
+        ttl_days: 180
+        compost_after_inactivity: false
+        compost_target: compost/code/context_graph.py.md
+  - artifact: kernel/wound_lifecycle.py
+    created_at: 2026-09-06
+    relations:
+      humans:
+        - context owner
+        - code and evidence reviewers
+      history:
+        - five evolution proposals and context graph design
+        - Issue observations and evidence-backed recurrence
+      dependencies:
+        - python-stdlib
+        - git
+        - shared-context-store
+      ecological_cost:
+        - retained evidence and reviewer attention
+      decay:
+        ttl_days: 180
+        compost_after_inactivity: false
+        compost_target: compost/code/wound_lifecycle.py.md
+  - artifact: kernel/experimental_dream.py
+    created_at: 2026-09-06
+    relations:
+      humans:
+        - context owner
+        - code and evidence reviewers
+      history:
+        - five evolution proposals and context graph design
+        - quarantined hypotheses and their experimental adoption
+      dependencies:
+        - python-stdlib
+        - git
+        - shared-context-store
+      ecological_cost:
+        - retained evidence and reviewer attention
+      decay:
+        ttl_days: 180
+        compost_after_inactivity: false
+        compost_target: compost/code/experimental_dream.py.md
+  - artifact: kernel/experiment_runner.py
+    created_at: 2026-09-06
+    relations:
+      humans:
+        - context owner
+        - code and evidence reviewers
+      history:
+        - five evolution proposals and context graph design
+        - bounded counterfactual and forgetting trials
+      dependencies:
+        - python-stdlib
+        - git
+        - shared-context-store
+      ecological_cost:
+        - retained evidence and reviewer attention
+      decay:
+        ttl_days: 180
+        compost_after_inactivity: false
+        compost_target: compost/code/experiment_runner.py.md
+  - artifact: kernel/judge_assessment.py
+    created_at: 2026-09-06
+    relations:
+      humans:
+        - context owner
+        - code and evidence reviewers
+      history:
+        - five evolution proposals and context graph design
+        - per-axis measurement against declared synthetic labels
+      dependencies:
+        - python-stdlib
+        - git
+        - shared-context-store
+      ecological_cost:
+        - retained evidence and reviewer attention
+      decay:
+        ttl_days: 180
+        compost_after_inactivity: false
+        compost_target: compost/code/judge_assessment.py.md
+  - artifact: kernel/private_cycle.py
+    created_at: 2026-09-06
+    relations:
+      humans:
+        - context owner
+        - code and evidence reviewers
+      history:
+        - five evolution proposals and context graph design
+        - private repository ingestion and projection updates
+      dependencies:
+        - python-stdlib
+        - git
+        - shared-context-store
+      ecological_cost:
+        - retained evidence and reviewer attention
+      decay:
+        ttl_days: 180
+        compost_after_inactivity: false
+        compost_target: compost/code/private_cycle.py.md
   - artifact: kernel/experience_event.py
     created_at: 2026-09-06
     relations:

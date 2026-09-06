@@ -1,0 +1,10 @@
+.ctr-engine/
+.ctr/
+.writer-lock/
+**/.writer-lock/
+**/.state-*
+**/*.tmp
+__pycache__/
+.env
+.env.*
+!.env.example

@@ -22,6 +22,15 @@ jobs:
       - name: Run tests
         run: python -m unittest
 
+      - name: Exercise the complete evolution loop with synthetic data
+        run: python -m kernel.evolution_demo --output "$RUNNER_TEMP/ctr-evolution-demo"
+
+      - name: Upload synthetic evolution evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: ctr-synthetic-evolution
+          path: ${{ runner.temp }}/ctr-evolution-demo/summary.json
+
       - name: Run Null Auditor
         run: python agents/null_auditor.py --pr "${{ github.event.pull_request.number }}"
 
