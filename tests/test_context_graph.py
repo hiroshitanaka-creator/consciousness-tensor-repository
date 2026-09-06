@@ -94,6 +94,7 @@ class ContextGraphTests(unittest.TestCase):
         export_context(self.store)
         self.assertTrue((self.store.root / "records" / filename(record["id"])).exists())
         self.assertIn(record["id"], (self.store.root / "INDEX.md").read_text())
+        self.assertFalse((self.store.root / "INDEX.md").read_text().endswith("\n\n"))
         self.assertEqual(json.loads((self.store.root / "graph.json").read_text())["state_hash"],
                          digest(self.store.load()["records"]))
 

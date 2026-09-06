@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import random
 import re
+import os
 
 from kernel.context_store import digest, make_record, text
 from kernel.wound_lifecycle import SYSTEM
@@ -43,7 +44,8 @@ def dream(store, wound_id, seed=0):
             data={"seed": seed, "generator": "ctr-template-v1", "source_hash": source_hash,
                   "question": question, "experiment": experiment, "acceptance_criterion": criterion,
                   "experiment_kind": experiment_kind, "wound": wound_id,
-                  "branch": "dream/" + identifier.split(":")[1][:16],
+                  "branch": os.environ.get("CTR_PENDING_BRANCH", "dream/" + identifier.split(":")[1][:16]),
+                  "branch_status": "workflow-target" if os.environ.get("CTR_PENDING_BRANCH") else "suggested",
                   "main_merge_allowed": False, "required_audits": ["null", "existential", "transparency"],
                   "interpretation": "A template-generated project hypothesis, not an inference about a person."})
         return identifier
@@ -107,7 +109,8 @@ def propose_dream(store, proposal):
                       "generator": "external-proposal", "generation": generation,
                       "source_hashes": {key: digest(records[key]) for key in sources},
                       "output_hash": digest(proposal), "main_merge_allowed": False,
-                      "branch": "dream/" + identifier.split(":")[1][:16],
+                      "branch": os.environ.get("CTR_PENDING_BRANCH", "dream/" + identifier.split(":")[1][:16]),
+                      "branch_status": "workflow-target" if os.environ.get("CTR_PENDING_BRANCH") else "suggested",
                       "required_audits": ["null", "existential", "transparency"],
                       "interpretation": "External model metadata is declared provenance, not independently authenticated."})
         return identifier

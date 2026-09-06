@@ -53,7 +53,7 @@ def export_context(store):
                     title = node["title"].replace("\n", " ").replace("[", "(").replace("]", ")")
                     lines.append(f"- [{node['id']}]({node['path']}) [{node['status']}] {title}")
             lines.append("")
-        safe_write(store.root, "INDEX.md", "\n".join(lines) + "\n")
+        safe_write(store.root, "INDEX.md", "\n".join(lines).rstrip() + "\n")
         active = [r["id"] for r in records.values() if r["kind"] == "wound" and r["status"] != "scarred"]
         decisions = [r["id"] for r in records.values() if r["kind"] == "decision" and r["status"] == "accepted"]
         self_state = {"version": 1, "context_hash": digest(records), "active_wounds": sorted(active),
